@@ -1,0 +1,177 @@
+# 🧠 Big Data & Cloud Computing Project  
+## Yelp Reviews Sentiment Analysis using AWS (S3, Glue, Athena, EMR, QuickSight)
+
+---
+
+## 📌 Project Overview
+
+This project demonstrates an end-to-end **Big Data analytics pipeline** on the Yelp Academic Dataset using **Amazon Web Services (AWS)**. The system processes large-scale review data (≈ 6.99 million reviews, ~5GB JSON) and performs **data ingestion, transformation, NLP processing, sentiment analysis, machine learning, and visualization**.
+
+The pipeline is fully cloud-based and scalable using AWS services such as:
+
+- Amazon S3 (Data Lake Storage)
+- AWS Glue (Metadata Catalog)
+- Amazon Athena (Serverless SQL Queries)
+- Amazon EMR Serverless (Apache Spark Processing)
+- Spark MLlib (Machine Learning)
+- Amazon QuickSight (Dashboards)
+- IAM + CloudWatch (Security & Monitoring)
+
+---
+
+## 📊 Dataset
+
+- **Dataset Name:** Yelp Academic Reviews Dataset  
+- **Source:** https://www.kaggle.com/datasets/yelp-dataset/yelp-dataset  
+- **Size:** ~5GB  
+- **Records:** ~6.99 million reviews  
+- **Format:** JSON  
+
+The dataset contains:
+- Review text (unstructured data)
+- Ratings (1–5 stars)
+- User IDs, Business IDs
+- Useful, funny, and cool vote counts
+- Date of review
+
+---
+
+## 🏗️ Architecture Overview
+
+The system follows a cloud-native big data pipeline:
+
+1. Data ingestion into **Amazon S3**
+2. Schema discovery using **AWS Glue Crawler**
+3. Data querying using **Amazon Athena**
+4. Distributed processing using **Amazon EMR Serverless (Spark)**
+5. NLP preprocessing and sentiment classification
+6. Machine Learning using **Logistic Regression (Spark MLlib)**
+7. Visualization using **Amazon QuickSight**
+
+---
+
+## ⚙️ Technologies Used
+
+- AWS S3
+- AWS Glue
+- Amazon Athena
+- AWS EMR Serverless
+- Apache Spark
+- Spark MLlib
+- Python / PySpark
+- Amazon QuickSight
+- IAM & CloudWatch
+
+---
+
+## 🔄 Data Pipeline Workflow
+
+### 1. Data Ingestion
+- Dataset uploaded from Kaggle to Amazon S3
+- Stored in structured folders:
+  - `raw/`
+  - `processed/`
+  - `scripts/`
+  - `logs/`
+  - `output/`
+
+---
+
+### 2. Data Cataloging (AWS Glue)
+- Glue Crawler automatically detects schema
+- Creates metadata table `yelp_raw`
+
+---
+
+### 3. Data Analysis (Amazon Athena)
+Performed SQL-based analysis:
+- Star rating distribution
+- Review counts
+- Top reviewers
+- Year-wise trends
+- Average ratings
+
+---
+
+### 4. Big Data Processing (EMR Serverless + Spark)
+Performed:
+- Text cleaning (removal of punctuation, stopwords)
+- Tokenization
+- Case normalization
+- Sentiment classification:
+  - Positive (≥4 stars)
+  - Neutral (3 stars)
+  - Negative (≤2 stars)
+- Output stored in Parquet format (partitioned by year)
+
+---
+
+### 5. Machine Learning (Spark MLlib)
+- Model: Logistic Regression
+- Features: TF-IDF vectorization
+- Train/Test split: 80/20
+- Accuracy: **84.91%**
+- F1 Score: **0.837**
+
+---
+
+### 6. Visualization (QuickSight)
+Dashboard includes:
+- Sentiment distribution
+- Review trends over time
+- Ratings distribution
+- KPI metrics:
+  - Total reviews: 6.99M
+  - Avg rating: 3.75
+  - Avg review length: 567 characters
+
+---
+
+## 🔐 Security & Compliance
+
+- S3 Block Public Access enabled
+- Server-Side Encryption (SSE-S3)
+- IAM roles with least privilege access
+- CloudWatch monitoring for logs
+- S3 lifecycle rules (data moved to Glacier for cost optimization)
+
+---
+
+## 📈 Key Results
+
+- Successfully processed **6.99 million reviews**
+- Built scalable distributed pipeline using Spark
+- Achieved **84.91% ML accuracy**
+- Enabled real-time SQL querying using Athena
+- Built interactive BI dashboard using QuickSight
+
+---
+
+## 🚀 How to Run (High-Level)
+
+1. Upload dataset to Amazon S3
+2. Run AWS Glue crawler to create schema
+3. Query data using Athena
+4. Run EMR Serverless Spark jobs
+5. Generate processed Parquet output
+6. Train ML model using Spark MLlib
+7. Visualize results in QuickSight
+
+---
+
+## 📎 Dataset Reference
+
+- Kaggle Dataset: https://www.kaggle.com/datasets/yelp-dataset/yelp-dataset  
+- Stored in AWS S3 for processing
+
+---
+
+## 📌 Conclusion
+
+This project demonstrates a complete **end-to-end scalable big data architecture** for NLP-based sentiment analysis using AWS cloud services. It highlights the power of serverless computing, distributed processing, and cloud-based machine learning for large-scale datasets.
+
+---
+
+## 👨‍💻 Author
+Karthik Reddy  
+Big Data & Cloud Computing Project
